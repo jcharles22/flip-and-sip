@@ -1,0 +1,22 @@
+.playerNameForm>input{
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+/* select all the buttons on just the start screen */
+.playerNameForm>button, .playerNameForm>a>button{
+    font-size: 18px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+
+.playersInputForm{
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 50px;
+    border: 1px solid black;
+    position:relative;
+    font-size: 25px;
+}

@@ -35,7 +35,6 @@ export default class Login extends Component {
                
                 <br />
                 <label htmlFor='password'>Password:</label>
-                    
                     <input type={this.state.passwordHidden ? "password" : "text"} 
                         value={this.state.value}
                         name='password'
@@ -48,7 +47,8 @@ export default class Login extends Component {
                         'https://cdn3.iconfinder.com/data/icons/show-and-hide-password/100/show_hide_password-07-512.png'
                         }
                         alt={this.state.passwordHidden? 'hidden': 'shown'}                        
-                        ></img>
+                        >
+                    </img>
                 
             </fieldset>
         )
