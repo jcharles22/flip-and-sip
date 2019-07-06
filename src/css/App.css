@@ -1,0 +1,13 @@
+h1{
+    margin-top: 50px;
+    text-align: center;
+    color: rgb(251, 219, 111);
+}
+
+body{
+    background-color: #A9B7C0;
+    min-width: 320px;
+}
+a{
+    text-decoration: none;
+}

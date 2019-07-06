@@ -1,0 +1,17 @@
+.loginFields {
+    max-width: 320px;
+    clear: both;
+    margin: 0 auto;
+    padding-right: 50px;
+}
+.loginFields>label{
+    display: block;
+}
+img:hover{
+    cursor: pointer;    
+}
+img{
+    margin-left: -22px;
+    height: 20px;
+    vertical-align: bottom;
+}
