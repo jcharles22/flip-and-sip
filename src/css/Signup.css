@@ -1,0 +1,18 @@
+.signUpFields {
+    max-width: 320px;
+    clear: both;
+    margin: 0 auto;
+    padding-right: 50px;
+    font-size: 25px;
+}
+.signUpFields>label{
+    display: block;
+}
+img:hover{
+    cursor: pointer;    
+}
+img{
+    margin-left: -22px;
+    height: 20px;
+    vertical-align: bottom;
+}

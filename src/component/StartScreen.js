@@ -9,11 +9,11 @@ export default class StartScreen extends Component {
         return (
             <section className = 'playersInputForm'>
                 <label className='playerNameForm'>Players Name:
-                    {Object.keys(this.props.state).map((player, index) => (
+                    {this.props.state.players.map((player, index) => (
                         <input type='text' 
                             key={`player${index+1}`} 
-                            className={player}
-                            value={this.props.state[player]}
+                            className={index}
+                            value={player}
                             onChange = {(e) => this.props.handleNameChange(e)} 
                             autoFocus
                         />

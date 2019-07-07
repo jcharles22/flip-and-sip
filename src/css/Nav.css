@@ -1,0 +1,13 @@
+.navBar{
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0;
+}
+.navBarContainer{
+    margin: 0 auto;
+    width: 80%;
+}
+.navBar>li{
+    list-style-type: none;
+    
+}

@@ -6,55 +6,57 @@ import Login from './component/Login'
 import Signup from './component/Signup'
 import StartScreen from './component/StartScreen'
 import GamePage from './component/GamePage'
+import Nav from './component/Nav';
 
 import './css/App.css'
 
 export default class App extends Component {
   state ={
-    player1: 'player1'
+   players: ['player1']
   }
 
   handleAddPlayer=()=> { 
-    console.log('clicked')
-    let playerNum = Object.keys(this.state).length+1   
-    let key = `player${playerNum}`       
+    let newState = this.state.players
+    newState.push(`player${this.state.players.length+1}`)
     this.setState({
-        [key] : key
+      players: newState
     })
 }
 
 handleRemovePlayer=()=> { 
-    let playerNum = Object.keys(this.state).length
-    let key = `player${playerNum}`
-    if(playerNum === 1) {
+    if(this.state.players.length === 1) {
       return 
     }  
-    delete this.state[key]
-    this.setState({})
+    let newState = this.state.players
+    newState.pop();
+    this.setState({
+      players: newState
+    })
 }
 
 handleNameChange=(e)=> {
-    let player = e.target.className
-    let {value} = e.target
-    let checkValue = value.slice(0,-1)
 
-    if(checkValue === player) {
-      this.setState({
-        [player]: value.slice(-1)
-      })
-    } else {
-    console.log(player)
-    console.log(value)
+  let index = e.target.className
+  let { value } = e.target
+  let newState = this.state.players
+  let checkValue = value.slice(0,-1)
+  if(checkValue === `player${parseInt(index)+1}`) {
+    newState[index] = value.slice(-1)
     this.setState({
-        [player] : value
+      players: newState
     })
+  } else {
+    newState[index] = value
+    this.setState({players: newState}) 
   }
 }
 
   render() {
     return (
       <div>
+        <Nav></Nav>
         <Link to='/'><h1>Flip & Sip</h1></Link>
+        
         <Route path='/' exact component={Home}/>
 
         <Route path='/LogIn' exact component={Login}/>

@@ -7,7 +7,6 @@ export default class Home extends Component {
    
         return (
             <div>
-                
                 <section className='homeButtons'>
                     <Link to ="/Login" >log in</Link>
                     <br />
