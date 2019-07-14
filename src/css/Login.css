@@ -16,3 +16,6 @@ img{
     height: 20px;
     vertical-align: bottom;
 }
+.loginError {
+    font-size: 18px;
+}

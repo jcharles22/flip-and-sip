@@ -1,0 +1,15 @@
+.CardCreator{
+    border: 1px solid black;
+    width: 300px;
+    margin: 0 auto;
+}
+.CardCreator>input, .CardCreator>textarea{
+    margin: 0 auto;
+    display:block;
+    width: 100%;
+}
+.CardCreator>label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display:block;
+}

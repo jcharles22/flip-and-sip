@@ -5,7 +5,6 @@ import '../css/StartScreen.css'
 export default class StartScreen extends Component {
 
     render() {
-        console.log(this.props.state)
         return (
             <section className = 'playersInputForm'>
                 <label className='playerNameForm'>Players Name:
@@ -22,7 +21,7 @@ export default class StartScreen extends Component {
                     <button onClick={(e) => this.props.handleRemovePlayer(e)}>-</button>
                     <button onClick={(e) => this.props.handleAddPlayer(e)}>+</button>
                     <Link to='/GamePage'>
-                        <button className='startButton'>Cherrs!</button>
+                        <button className='startButton' onClick={() => this.props.shuffle()}>Cherrs!</button>
                     </Link>
                 </label>
             </section>
