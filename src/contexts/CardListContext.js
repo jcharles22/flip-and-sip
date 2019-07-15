@@ -101,21 +101,16 @@ export class CardListProvider extends Component {
         return  names[Math.floor(Math.random() * names.length)]
     }
     handleLogin=()=> {
-        console.log('logging in')
         if(TokenService.hasAuthToken()) {
             this.setState({ loggedIn: true })
         }
-        console.log('loggingIn: ' +this.state.loggedIn)
     }
     handleLogout=()=> {
-        console.log('logging out') 
         TokenService.clearAuthToken()  
         this.setState({ loggedIn: false })
-        console.log('loggingout: ' +this.state.loggedIn)
         
     }
     handleAddPlayer=()=> { 
-        console.log('inside handleadd player')
         let newState = this.state.players
         newState.push(`player${this.state.players.length+1}`)
         this.setState({
@@ -137,7 +132,6 @@ export class CardListProvider extends Component {
         let { value } = e.target
         let newState = this.state.players
         let checkValue = value.slice(0,-1)
-        console.log(index, value, )
         if(checkValue === `player${parseInt(index)+1}`) {
           newState[index] = value.slice(-1)
           this.setState({
@@ -147,7 +141,6 @@ export class CardListProvider extends Component {
           newState[index] = value
           this.setState({players: newState}) 
         }
-        console.log(this.state.players)
     }
     setPlayersName=()=> {
         let playingCards = this.state.cards
@@ -160,13 +153,11 @@ export class CardListProvider extends Component {
         })
     }
     handleCardChange=(cardKey)=>{
-        console.log(cardKey.target.id)
         let key = cardKey.target.id
         key = Number(key)
         let updateActive = this.state.cards
         updateActive.map((card, index) =>{
           if(card.card_id === key){
-            console.log('inside', card)
             return (updateActive[index].card_active = !card['card_active'])
           } else {
           return card
@@ -177,11 +168,9 @@ export class CardListProvider extends Component {
         })
     }
     handleSubmit=(newCard)=>{
-        console.log(newCard)
         newCard.card_id= this.state.cards.length
         let newState = this.state.cards
         newState.push(newCard)
-        console.log(newState)
         this.setState({
             playingCards: newState
         })
