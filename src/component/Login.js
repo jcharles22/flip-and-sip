@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TokenService from '../services/token-service'
-import { Redirect } from 'react-router-dom'
 import AuthApiService from '../services/auth-api-service'
 import '../css/Login.css'
 import CardListContext from '../contexts/CardListContext';
@@ -85,6 +84,9 @@ export default class Login extends Component {
                     >
                 </img>
                 <button onClick={(ev) => this.handleSubmitJwtAuth(ev)}>submit</button>
+                <li>username: user </li>
+                <li>password: password</li>
+                <li>for test purposes</li>
             </fieldset>
         )
     }

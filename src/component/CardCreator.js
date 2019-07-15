@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/CardCreator.css'
+import CardListContext from '../contexts/CardListContext';
 
 export default class CardCreator extends Component {
+    static contextType = CardListContext;
     state = {
         card_title:'',
         card_desc:'',
@@ -20,7 +22,7 @@ export default class CardCreator extends Component {
     }
     handleSubmit=(e)=>{
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        this.context.handleSubmit(this.state)
         
     }
     addRandomPlayer=()=>{

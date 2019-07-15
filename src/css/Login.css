@@ -19,3 +19,9 @@ img{
 .loginError {
     font-size: 18px;
 }
+
+.loginFields>li{
+    font-size: 18px;
+    text-decoration: none;
+    list-style-type: none;
+}
