@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/CardCreator.css'
 import CardListContext from '../contexts/CardListContext';
+import TokenService from '../services/token-service';
 
 export default class CardCreator extends Component {
     static contextType = CardListContext;
@@ -36,10 +37,15 @@ export default class CardCreator extends Component {
                 {card_desc: prevState.card_desc +' random player'}))
         }
     }
-    render() {
-        console.log(this.state)
-        return (
-            <div className='CardCreator'>
+
+    renderloginIn=()=> {
+        return(
+            <p className='cardLogin'>You need to be logged in to create a card</p>
+        )
+    }
+    renderCreate=()=>{
+        return(
+            <>
                 <label>Enter a title:</label>
                 <input type='text' onChange={(e)=> this.handleTitle(e)}></input>
                 <label>Enter the descritpion:</label>
@@ -47,6 +53,14 @@ export default class CardCreator extends Component {
                 <button onClick={()=> this.addRandomPlayer()}>Add Random Player</button>
                 <br />
                 <button type='submit' onClick={(e) => this.handleSubmit(e)}><Link to='/'>Submit</Link></button>
+            </>
+        )
+    }
+
+    render() {
+        return (
+            <div className='CardCreator'>
+                {TokenService.hasAuthToken() ? this.renderCreate() : this.renderloginIn()}
             </div>
         )
     }

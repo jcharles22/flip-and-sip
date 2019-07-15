@@ -13,7 +13,7 @@ export default class home extends Component {
         return (
             <>
                 <li><Link to='/Login'> Login </Link></li>
-                <li><Link to='/SignUp'>Sign Up</Link></li>    
+                {/* <li><Link to='/SignUp'>Sign Up</Link></li>     */}
             </>
         )
     }

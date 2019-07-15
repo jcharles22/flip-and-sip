@@ -6,17 +6,12 @@ import CardListContext from '../contexts/CardListContext';
 export default class Home extends Component {    
     static contextType = CardListContext;
 
-    renderLoggedin() {
-        return(
-            <Link to='/CardCreator'>Create a Card</Link>
-        )
-       
-    }
+
     renderLoggedOut() {
         return(
             <>
                 <Link to ="/Login" >log in</Link>
-                <Link to ="/Signup" >Sign up</Link>
+                {/* <Link to ="/Signup" >Sign up</Link> */}
             </>
         )
     }
@@ -29,7 +24,8 @@ export default class Home extends Component {
                 <section className='homeButtons'>
                     <Link to ="/StartScreen" >Play</Link>
                     <Link to ="/CardList">List Cards</Link>
-                    {this.context.loggedIn ? this.renderLoggedin() : this.renderLoggedOut()}
+                    <Link to='/CardCreator'>Create a Card</Link>
+                    {this.context.loggedIn ? "": this.renderLoggedOut()}
                 </section>
             </div>
         )

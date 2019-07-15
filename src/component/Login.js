@@ -39,29 +39,19 @@ export default class Login extends Component {
         this.setState({error: null})
         let { user_name, password } = this.state
 
-        AuthApiService.postLogin({
-            user_name,
-            password
-        })
-            .then(res => {
-                this.setState({
-                user_name :'',
-                password:''
-                })
-            })
-            .catch(res => {
-                this.setState({error: res.error})
-            })
-            .then(res => this.context.handleLogin())
-            .then(res => {if(TokenService.hasAuthToken()){
-                this.props.history.push('/')}}
-            )
+        AuthApiService.postLogin({user_name, password})
+        setTimeout(()=> {this.homePage(); }, 500)
 
+    }
+    homePage=()=> {
+        if(TokenService.hasAuthToken()){
+            this.context.handleLogin()
+            this.props.history.push('/')
+        }
     }
    
     render() {
         const { error } = this.state
-        console.log()
         return (
             <fieldset className="loginFields">
                 <legend>Login</legend>
@@ -84,9 +74,9 @@ export default class Login extends Component {
                     >
                 </img>
                 <button onClick={(ev) => this.handleSubmitJwtAuth(ev)}>submit</button>
-                <li>username: user </li>
-                <li>password: password</li>
-                <li>for test purposes</li>
+                <li className='loginError'>username: user </li>
+                <li className='loginError'>password: password</li>
+                <li className='loginError'>for test purposes</li>
             </fieldset>
         )
     }

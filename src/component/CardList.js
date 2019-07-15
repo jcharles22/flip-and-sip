@@ -8,6 +8,7 @@ export default class CardList extends Component {
     render() {
         return (
             <div className='row'>
+                <p>Click the cards you dont want to play with or click then agian to add them back.</p>
                 {this.context.cards.map(card =>{
                     return(
                         <section key={card.card_id} 

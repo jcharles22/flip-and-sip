@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TokenService from '../services/token-service';
-import config from '../config'
 
 const CardListContext = React.createContext({
     cards: [],
@@ -30,15 +29,54 @@ export class CardListProvider extends Component {
     };
     
     setCards = () => {
-        fetch('http://localhost:8000/api/card/')
-        .then(response => response.json())
-        .then(response => this.setState({
-            cards: response
-          }))
-        .catch(error => this.setState({error}))
+        this.setState({
+            cards: [
+                {
+                    card_id: 1,
+                    card_title: "Social",
+                    card_desc: "Everyone Take a drink",
+                    card_active: true,
+                    user_name: "jc"
+                },
+                {
+                    card_id: 2,
+                    card_title: "take 2",
+                    card_desc: "random player take 2 drinks",
+                    card_active: true,
+                    user_name: "jc"
+                },    
+                {
+                    card_id: 3,
+                    card_title: "Social",
+                    card_desc: "Everyone Drink",
+                    card_active: true,
+                    user_name: "jc"
+                },
+                {
+                    card_id: 4,
+                    card_title: "Siblings suck",
+                    card_desc: "Everyone drink as many siblings as you have (half and step count)",
+                    card_active: true,
+                    user_name: "jc"
+                },
+                {
+                    card_id: 5,
+                    card_title: "Blondes have more fun",
+                    card_desc: "All brunettes take a drink",
+                    card_active: true,
+                    user_name: "jc"
+                },
+                {
+                    card_id: 6,
+                    card_title: "ThumbMaster",
+                    card_desc: "random player is the thumb master everytime they puts his thumb on the table everyone else has to the last one has to take a drink",
+                    card_active: true,
+                    user_name: "jc"
+                },
+            ]
+        })
     }
     setError = error => {
-        console.log(error)
         this.setState({ error })
     }
     clearError = () => {
@@ -118,7 +156,7 @@ export class CardListProvider extends Component {
             return (playingCards[index].card_desc=card.card_desc.replace('random player', ''+ this.randomPlayer() +'' ))
         })
         this.setState({
-            playingCards
+            playingCards: playingCards
         })
     }
     handleCardChange=(cardKey)=>{
@@ -137,48 +175,16 @@ export class CardListProvider extends Component {
         this.setState({
           cards: updateActive
         })
-        this.updateCardInDatabase(key)
-      
-    }
-    updateCardInDatabase(id){
-        let updatedCard = this.state.cards.filter(obj => {
-        return (obj.card_id === id)
-        })
-        let { card_id, card_title, card_desc, card_active } = updatedCard[0]
-        console.log(  card_id, card_title, card_desc, card_active)
-        fetch(`${config.API_ENDPOINT}/card`, {
-        method: 'PATCH',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            card_id,
-            card_title,
-            card_desc,
-            card_active
-        })
-        })
     }
     handleSubmit=(newCard)=>{
-        //remove timeout and set up promises resolve fetch then call setCards()
-        let { card_title, card_desc, card_active} = newCard
-        console.log(card_title, card_desc, card_active)
-        fetch(`${config.API_ENDPOINT}/card`, {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-            'authorization': `bearer ${TokenService.getAuthToken()}`
-          },
-          body: JSON.stringify({
-            card_title,
-            card_desc,
-            card_active
-          })
-        }
-        
-        )
-        //remove timeout
-        setTimeout(()=> {this.setCards(); }, 1000)
+        console.log(newCard)
+        newCard.card_id= this.state.cards.length
+        let newState = this.state.cards
+        newState.push(newCard)
+        console.log(newState)
+        this.setState({
+            playingCards: newState
+        })
     }
 
     render() {
