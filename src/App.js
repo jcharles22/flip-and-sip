@@ -21,26 +21,7 @@ export default class App extends Component {
     this.context.setCards()
    }
 
-
-  // shuffle() {
-  //   let newArray = this.state.cards;
-  //     let currentIndex= newArray.length, temporaryValue, randomIndex;
-
-  //     while(0 !== currentIndex) {
-  //         randomIndex = Math.floor(Math.random() * currentIndex);
-  //         currentIndex -= 1;
-
-  //         temporaryValue = newArray[currentIndex];
-  //         newArray[currentIndex] = newArray[randomIndex];
-  //         newArray[randomIndex] = temporaryValue;
-  //     }
-  //     this.setState({cards: newArray});
-  // }
-
-
-
   render() {
-    console.log(this.state)
     return (
       <div>
         <Nav></Nav>
@@ -58,9 +39,7 @@ export default class App extends Component {
           history={history}
         />
         }/>
-        <Route path='/CardList' exact component={() => <CardList
-          handleCardChange={(cardKey) => this.handleCardChange(cardKey)}
-          />}
+        <Route path='/CardList' exact component={() => <CardList/>}
         />
         <Route path='/CardCreator' exact component={() => <CardCreator  handleSubmit={(newCard)=>this.handleSubmit(newCard)}/>}/> 
 

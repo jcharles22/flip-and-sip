@@ -4,6 +4,7 @@ import config from '../config'
 
 const CardListContext = React.createContext({
     cards: [],
+    decks: [],
     error: null,
     setError: () => {},
     clearError: () => {},
@@ -22,10 +23,10 @@ export default CardListContext
 export class CardListProvider extends Component {
     state = {
         cards: [],
+        decks: [],
         players: ['player1'],
         error: null,
         loggedIn: TokenService.hasAuthToken(),
-        activeCards: [],
         playingCards: [],
     };
     
@@ -36,9 +37,15 @@ export class CardListProvider extends Component {
             cards: response
           }))
         .catch(error => this.setState({error}))
+
+        fetch('http://localhost:8000/api/deck/')
+        .then(response => response.json())
+        .then(response => this.setState({
+            decks: response
+        }))
+        .catch(error => this.setState({error}))
     }
     setError = error => {
-        console.log(error)
         this.setState({ error })
     }
     clearError = () => {
@@ -63,21 +70,15 @@ export class CardListProvider extends Component {
         return  names[Math.floor(Math.random() * names.length)]
     }
     handleLogin=()=> {
-        console.log('logging in')
         if(TokenService.hasAuthToken()) {
             this.setState({ loggedIn: true })
         }
-        console.log('loggingIn: ' +this.state.loggedIn)
     }
     handleLogout=()=> {
-        console.log('logging out') 
         TokenService.clearAuthToken()  
-        this.setState({ loggedIn: false })
-        console.log('loggingout: ' +this.state.loggedIn)
-        
+        this.setState({ loggedIn: false })        
     }
     handleAddPlayer=()=> { 
-        console.log('inside handleadd player')
         let newState = this.state.players
         newState.push(`player${this.state.players.length+1}`)
         this.setState({
@@ -99,7 +100,6 @@ export class CardListProvider extends Component {
         let { value } = e.target
         let newState = this.state.players
         let checkValue = value.slice(0,-1)
-        console.log(index, value, )
         if(checkValue === `player${parseInt(index)+1}`) {
           newState[index] = value.slice(-1)
           this.setState({
@@ -109,26 +109,27 @@ export class CardListProvider extends Component {
           newState[index] = value
           this.setState({players: newState}) 
         }
-        console.log(this.state.players)
     }
     setPlayersName=()=> {
         let playingCards = this.state.cards
-        playingCards =  playingCards.filter(card => card.card_active)
+        
+        playingCards = playingCards.filter(card => card.card_active)
         playingCards.map((card, index)=> {
             return (playingCards[index].card_desc=card.card_desc.replace('random player', ''+ this.randomPlayer() +'' ))
         })
+        playingCards = this.shuffleCards(playingCards) 
         this.setState({
             playingCards
         })
+        this.setCards();
+
     }
     handleCardChange=(cardKey)=>{
-        console.log(cardKey.target.id)
         let key = cardKey.target.id
         key = Number(key)
         let updateActive = this.state.cards
         updateActive.map((card, index) =>{
           if(card.card_id === key){
-            console.log('inside', card)
             return (updateActive[index].card_active = !card['card_active'])
           } else {
           return card
@@ -145,7 +146,6 @@ export class CardListProvider extends Component {
         return (obj.card_id === id)
         })
         let { card_id, card_title, card_desc, card_active } = updatedCard[0]
-        console.log(  card_id, card_title, card_desc, card_active)
         fetch(`${config.API_ENDPOINT}/card`, {
         method: 'PATCH',
         headers: {
@@ -162,7 +162,6 @@ export class CardListProvider extends Component {
     handleSubmit=(newCard)=>{
         //remove timeout and set up promises resolve fetch then call setCards()
         let { card_title, card_desc, card_active} = newCard
-        console.log(card_title, card_desc, card_active)
         fetch(`${config.API_ENDPOINT}/card`, {
           method: 'POST',
           headers: {
@@ -184,6 +183,7 @@ export class CardListProvider extends Component {
     render() {
         const value = {
             cards: this.state.cards,
+            decks: this.state.decks,
             playingCards: this.state.playingCards,
             error: this.state.error,
             setError: this.setError,
@@ -196,7 +196,6 @@ export class CardListProvider extends Component {
             handleRemovePlayer: this.handleRemovePlayer,
             handleNameChange: this.handleNameChange,
             players: this.state.players,
-            activeCards: this.state.activeCards,
             setPlayersName: this.setPlayersName,
             handleCardChange: this.handleCardChange,
             handleSubmit: this.handleSubmit,

@@ -6,6 +6,7 @@ export default class CardList extends Component {
     static contextType = CardListContext
 
     render() {
+        console.log(this.context)
         return (
             <div className='row'>
                 {this.context.cards.map(card =>{
