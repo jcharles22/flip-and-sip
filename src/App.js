@@ -9,6 +9,7 @@ import Nav from './component/Nav';
 import CardList from './component/CardList'
 import CardCreator from './component/CardCreator'
 import DeckScreen from './component/DeckScreen'
+import TokenService from './services/token-service'
 import './css/App.css'
 import CardListContext from './contexts/CardListContext';
 
@@ -18,6 +19,7 @@ export default class App extends Component {
 
 
   componentDidMount(){
+    TokenService.clearAuthToken();
     this.context.setCards()
    }
 

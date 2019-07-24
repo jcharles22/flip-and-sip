@@ -15,9 +15,10 @@ export default class GamePage extends Component {
 
         if(this.state.currentCard >= this.context.playingCards.length){
             return (
-                <div>
+                <div className='card'>
                     <h2>No more Cards</h2>
-                    <p>Click agian to play again! :)</p>
+                    <p>Thanks for Playing!  :)</p>
+                    <p>click again</p>
                 </div>)
         } else {
         return (
@@ -36,7 +37,7 @@ export default class GamePage extends Component {
             currentCard: this.state.currentCard + 1
         })
         if(this.state.currentCard >= this.context.playingCards.length){
-            this.props.history.push('/StartScreen')
+            this.props.history.push('/')
         }
     }
 

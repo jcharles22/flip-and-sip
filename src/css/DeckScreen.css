@@ -1,9 +1,15 @@
 .deckContainer{
     width: 150px;
     height: 150px;
-    border: 1px solid black;
+    background-color: #525252;
+    color: white;
+    text-align: center;
+    padding-top: 58px;
 }
 .deck{
     display: flex;
     justify-content: space-around;
+    max-width: 650px;
+    border: 1px solid black;
+    margin: 0 auto;
 }

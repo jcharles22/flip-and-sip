@@ -6,6 +6,7 @@ import CardListContext from '../contexts/CardListContext';
 
 
 export default class Login extends Component {
+    static contextType = CardListContext;
     constructor(props){
         super(props)
         this.state={
@@ -15,14 +16,11 @@ export default class Login extends Component {
             password: ''
         }
     }
-    static contextType = CardListContext;
-
     hanldeUserName=(e)=> {
         this.setState({
             user_name:e.target.value
         })
     }
-
     handlePassword=()=> {
         this.setState({
             passwordHidden: !this.state.passwordHidden
@@ -38,30 +36,27 @@ export default class Login extends Component {
         ev.preventDefault()
         this.setState({error: null})
         let { user_name, password } = this.state
-
         AuthApiService.postLogin({
             user_name,
             password
         })
-            .then(res => {
+            .then(res => {   
                 this.setState({
-                user_name :'',
                 password:''
                 })
+                
             })
             .catch(res => {
                 this.setState({error: res.error})
             })
-            .then(res => this.context.handleLogin())
+            .then(res => this.context.handleLogin(this.state.user_name))
             .then(res => {if(TokenService.hasAuthToken()){
                 this.props.history.push('/')}}
             )
-
     }
    
     render() {
         const { error } = this.state
-        console.log()
         return (
             <fieldset className="loginFields">
                 <legend>Login</legend>

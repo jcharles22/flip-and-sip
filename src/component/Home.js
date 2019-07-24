@@ -27,7 +27,7 @@ export default class Home extends Component {
         return (
             <div>
                 <section className='homeButtons'>
-                    <Link to ="/StartScreen" >Play</Link>
+                    <Link to ="/DeckScreen" >Play</Link>
                     <Link to ="/CardList">List Cards</Link>
                     {this.context.loggedIn ? this.renderLoggedin() : this.renderLoggedOut()}
                 </section>

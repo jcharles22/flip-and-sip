@@ -6,6 +6,7 @@ const CardListContext = React.createContext({
     cards: [],
     decks: [],
     error: null,
+    userId: 2,
     setError: () => {},
     clearError: () => {},
     setCards: () => {},
@@ -16,6 +17,8 @@ const CardListContext = React.createContext({
     setPlayersName: () => {},
     handleCardChange: (cardKey) => {},
     handleSubmit: (newCard) => {},
+    setUserName: (name) => {},
+    handleDeckSelected: (deckId) => {},
 })
 
 export default CardListContext
@@ -28,17 +31,25 @@ export class CardListProvider extends Component {
         error: null,
         loggedIn: TokenService.hasAuthToken(),
         playingCards: [],
+        userName: 'test',
+        userId: 2
     };
     
     setCards = () => {
-        fetch('http://localhost:8000/api/card/')
-        .then(response => response.json())
-        .then(response => this.setState({
-            cards: response
+        fetch(`${config.API_ENDPOINT}/card`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'userName': this.state.userName        
+            },
+          })
+            .then(response => response.json())
+            .then(response => this.setState({
+              cards: response
           }))
-        .catch(error => this.setState({error}))
+          .catch(error => this.setState({error}))
 
-        fetch('http://localhost:8000/api/deck/')
+    fetch('http://localhost:8000/api/deck/')
         .then(response => response.json())
         .then(response => this.setState({
             decks: response
@@ -69,14 +80,20 @@ export class CardListProvider extends Component {
         let names=this.state.players
         return  names[Math.floor(Math.random() * names.length)]
     }
-    handleLogin=()=> {
+    handleLogin=(name)=> {
         if(TokenService.hasAuthToken()) {
-            this.setState({ loggedIn: true })
+            this.setState({ 
+                loggedIn: true,
+                userName: name 
+            })
+            this.setCards()
         }
+
     }
     handleLogout=()=> {
         TokenService.clearAuthToken()  
-        this.setState({ loggedIn: false })        
+        this.setState({ loggedIn: false, userName: 'test' }) 
+        this.setCards()       
     }
     handleAddPlayer=()=> { 
         let newState = this.state.players
@@ -111,58 +128,56 @@ export class CardListProvider extends Component {
         }
     }
     setPlayersName=()=> {
-        let playingCards = this.state.cards
+        let playingCards = this.state.playingCards
         
-        playingCards = playingCards.filter(card => card.card_active)
+        playingCards = playingCards.filter(card => card.active)
+        console.log(playingCards)
         playingCards.map((card, index)=> {
             return (playingCards[index].card_desc=card.card_desc.replace('random player', ''+ this.randomPlayer() +'' ))
         })
+        console.log(playingCards)
         playingCards = this.shuffleCards(playingCards) 
         this.setState({
-            playingCards
+            playingCards : playingCards
         })
         this.setCards();
 
     }
-    handleCardChange=(cardKey)=>{
-        let key = cardKey.target.id
-        key = Number(key)
-        let updateActive = this.state.cards
-        updateActive.map((card, index) =>{
-          if(card.card_id === key){
-            return (updateActive[index].card_active = !card['card_active'])
-          } else {
-          return card
-          }
-        }) 
-        this.setState({
-          cards: updateActive
-        })
-        this.updateCardInDatabase(key)
+    handleCardChange=(cardKey, deckId)=>{
+        let cardId = Number(cardKey)
+        this.updateCardInDatabase(cardId, deckId)
+        this.setCards();
       
     }
-    updateCardInDatabase(id){
+    updateCardInDatabase(cardId, deckId){
         let updatedCard = this.state.cards.filter(obj => {
-        return (obj.card_id === id)
+        return (obj.card_id === cardId && obj.deck_id === deckId)
         })
-        let { card_id, card_title, card_desc, card_active } = updatedCard[0]
+        console.log(updatedCard[0])
+        let { card_id, deck_id} = updatedCard[0]
+        let active = !updatedCard[0].active
+        let userName = this.state.userName
+        console.log(card_id, active, userName, deck_id)
         fetch(`${config.API_ENDPOINT}/card`, {
         method: 'PATCH',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'authorization': config.TOKEN_KEY+ TokenService.getAuthToken()
         },
         body: JSON.stringify({
             card_id,
-            card_title,
-            card_desc,
-            card_active
+            active,
+            userName,
+            deck_id
         })
-        })
+        }) 
+        .then(res => console.log(res))
+        setTimeout(()=> {this.setCards(); }, 10)
     }
+
     handleSubmit=(newCard)=>{
-        //remove timeout and set up promises resolve fetch then call setCards()
         let { card_title, card_desc, card_active} = newCard
-        fetch(`${config.API_ENDPOINT}/card`, {
+        fetch(`${config.API_ENDPOINT}/card/1`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -176,19 +191,39 @@ export class CardListProvider extends Component {
         }
         
         )
-        //remove timeout
         setTimeout(()=> {this.setCards(); }, 1000)
+    }
+
+    handleDeckSelected=(deckId) => {
+        console.log(this.state.cards)
+        let deck = parseInt(deckId.target.id)
+        let playingCards = this.state.cards
+        playingCards = playingCards.filter(card => card.deck_id === deck)
+        this.setState({
+            playingCards
+        })
+          .catch(error => this.setState({error}))
+
+
+       
+    }
+    setUserName=(name)=> {
+        this.setState({
+            userName: name
+        })
     }
 
     render() {
         const value = {
             cards: this.state.cards,
             decks: this.state.decks,
+            userName: this.state.userName,
             playingCards: this.state.playingCards,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
             setCards: this.setCards,
+            setUserName: this.setUserName,
             loggedIn: this.state.loggedIn,
             handleLogout: this.handleLogout,
             handleLogin: this.handleLogin,
@@ -199,6 +234,7 @@ export class CardListProvider extends Component {
             setPlayersName: this.setPlayersName,
             handleCardChange: this.handleCardChange,
             handleSubmit: this.handleSubmit,
+            handleDeckSelected: this.handleDeckSelected,
         }
     return(
             <CardListContext.Provider value={value}>

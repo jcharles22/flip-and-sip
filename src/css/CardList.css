@@ -9,7 +9,26 @@
     
 }
 
+h5{
+    font-size: 30px;
+    font-weight: 400;
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
 
+}
+.decks{
+    width: 40%;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0 5px;
+}
+.selected{
+    background-color: rgb(49, 49, 49);
+    color: white;
+
+}
 .row{
    display: flex;
    flex-wrap: wrap;
