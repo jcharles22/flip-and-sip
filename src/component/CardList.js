@@ -7,7 +7,7 @@ export default class CardList extends Component {
     static contextType = CardListContext
 
     state = {
-        selected: 'House-Party',
+        selected: this.context.deckSelected,
         deckId: null,
         cards: this.context.cards,
         show: [],
@@ -19,6 +19,8 @@ export default class CardList extends Component {
         this.setState({
             show            
         })
+        console.log(this.context.deckSelected)
+
     }
     handleClick=(cardKey)=>{
         if(TokenService.hasAuthToken()){
@@ -53,13 +55,9 @@ export default class CardList extends Component {
         ))
     }
 
-
     changeDeck=(decks)=>{
         let deck = decks.target.id
-        console.log(deck)
-        this.setState({
-            selected: deck
-        })
+        this.context.changeSelectedDeck(deck)
         
         let show = this.state.cards.filter(card => card.deck_title === deck)
         console.log(show)

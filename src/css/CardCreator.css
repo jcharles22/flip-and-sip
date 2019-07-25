@@ -3,7 +3,7 @@
     width: 300px;
     margin: 0 auto;
 }
-.CardCreator>input, .CardCreator>textarea{
+.CardCreator>input[type='text'], .CardCreator>textarea{
     margin: 0 auto;
     display:block;
     width: 100%;
@@ -11,5 +11,31 @@
 .CardCreator>label{
     margin-top: 10px;
     margin-bottom: 5px;
-    display:block;
+
+}
+.CardCreator>input[type='radio']{
+    display: inline;
+    vertical-align: bottom;
+    margin-left: 30px;
+    margin-right: 5px;
+    position: relative;
+    
+}
+
+.CardCreator>p{
+    text-align:center;
+}
+
+.deckSelectContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.deckSelect {
+    border: 1px solid black;
+    padding: 5px;
+}
+.deckSelect:hover {
+    opacity: .5;
+    cursor: pointer;
 }

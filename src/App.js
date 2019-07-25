@@ -21,6 +21,7 @@ export default class App extends Component {
   componentDidMount(){
     TokenService.clearAuthToken();
     this.context.setCards()
+    this.context.setDeck()
    }
 
   render() {

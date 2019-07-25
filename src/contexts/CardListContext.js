@@ -7,6 +7,7 @@ const CardListContext = React.createContext({
     decks: [],
     error: null,
     userId: 2,
+    deckSelected: '',
     setError: () => {},
     clearError: () => {},
     setCards: () => {},
@@ -18,6 +19,8 @@ const CardListContext = React.createContext({
     handleCardChange: (cardKey) => {},
     handleSubmit: (newCard) => {},
     setUserName: (name) => {},
+    setDeck: () => {},
+    changeSelectedDeck: (deck) => {},
     handleDeckSelected: (deckId) => {},
 })
 
@@ -32,7 +35,8 @@ export class CardListProvider extends Component {
         loggedIn: TokenService.hasAuthToken(),
         playingCards: [],
         userName: 'test',
-        userId: 2
+        userId: 2,
+        deckSelected:'House-Party'
     };
     
     setCards = () => {
@@ -48,20 +52,32 @@ export class CardListProvider extends Component {
               cards: response
           }))
           .catch(error => this.setState({error}))
+    }
 
-    fetch('http://localhost:8000/api/deck/')
+    setDeck = () => {
+        fetch('http://localhost:8000/api/deck/')
         .then(response => response.json())
         .then(response => this.setState({
             decks: response
         }))
         .catch(error => this.setState({error}))
     }
+
     setError = error => {
         this.setState({ error })
     }
     clearError = () => {
         this.setState({ error:null })
     }
+
+    changeSelectedDeck=(decks) => {
+
+        this.setState({
+            deckSelected: decks
+        })
+    }
+
+    
     shuffleCards=cards => {
         let newArray = cards;
         let currentIndex= newArray.length, temporaryValue, randomIndex;
@@ -146,7 +162,6 @@ export class CardListProvider extends Component {
     handleCardChange=(cardKey, deckId)=>{
         let cardId = Number(cardKey)
         this.updateCardInDatabase(cardId, deckId)
-        this.setCards();
       
     }
     updateCardInDatabase(cardId, deckId){
@@ -177,7 +192,18 @@ export class CardListProvider extends Component {
 
     handleSubmit=(newCard)=>{
         let { card_title, card_desc, card_active} = newCard
-        fetch(`${config.API_ENDPOINT}/card/1`, {
+        let deck = newCard.deckId
+        deck = deck.filter(deck => {
+                                if(deck === null){
+                                    return null
+                                } else {
+                                    return deck
+                                }
+                            })
+        
+        console.log(deck)
+        
+        fetch(`${config.API_ENDPOINT}/card`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json',
@@ -186,7 +212,8 @@ export class CardListProvider extends Component {
           body: JSON.stringify({
             card_title,
             card_desc,
-            card_active
+            card_active,
+            deck
           })
         }
         
@@ -202,9 +229,6 @@ export class CardListProvider extends Component {
         this.setState({
             playingCards
         })
-          .catch(error => this.setState({error}))
-
-
        
     }
     setUserName=(name)=> {
@@ -220,10 +244,12 @@ export class CardListProvider extends Component {
             userName: this.state.userName,
             playingCards: this.state.playingCards,
             error: this.state.error,
+            deckSelected: this.state.deckSelected,
             setError: this.setError,
             clearError: this.clearError,
             setCards: this.setCards,
             setUserName: this.setUserName,
+            setDeck: this.setDeck,
             loggedIn: this.state.loggedIn,
             handleLogout: this.handleLogout,
             handleLogin: this.handleLogin,
@@ -235,6 +261,7 @@ export class CardListProvider extends Component {
             handleCardChange: this.handleCardChange,
             handleSubmit: this.handleSubmit,
             handleDeckSelected: this.handleDeckSelected,
+            changeSelectedDeck: this.changeSelectedDeck,
         }
     return(
             <CardListContext.Provider value={value}>
