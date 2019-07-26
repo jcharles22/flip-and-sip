@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "flip-and-sip",
+    "name": "flip-and-sip",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
