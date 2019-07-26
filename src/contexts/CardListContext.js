@@ -109,7 +109,8 @@ export class CardListProvider extends Component {
     handleLogout=()=> {
         TokenService.clearAuthToken()  
         this.setState({ loggedIn: false, userName: 'test' }) 
-        this.setCards()       
+        setTimeout(()=> {this.setCards(); }, 10)
+
     }
     handleAddPlayer=()=> { 
         let newState = this.state.players

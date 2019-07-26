@@ -16,8 +16,11 @@ export default class CardList extends Component {
     componentWillMount() {
         let show = this.state.cards.filter(card => card.deck_title === this.state.selected)
         console.log(show)
+        show = show.sort((a,b) => {
+            return (a.card_id - b.card_id || a.deck_id - b.deck_id)
+        })
         this.setState({
-            show            
+            show,
         })
         console.log(this.context.deckSelected)
 

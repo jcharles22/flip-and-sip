@@ -11,7 +11,7 @@ export default class Signup extends Component {
             user_name: '',
             password: '',
             checkValue: '',
-            error: 'Password must containe one Upper case, lower case, number, and special, character'
+            error: 'Passwordd must containe one Upper case, lower case, number, and special, character'
         }
     }
 
