@@ -11,7 +11,7 @@ export default class Signup extends Component {
             user_name: '',
             password: '',
             checkValue: '',
-            error: 'Passwordd must containe one Upper case, lower case, number, and special, character'
+            error: 'Password must containe one Upper case, lower case, number, and special, character'
         }
     }
 
@@ -50,12 +50,6 @@ export default class Signup extends Component {
             user_name,
             password
         })
-            // .then(user => {
-            //     this.setState({
-            //         user_name : '',
-            //         password : ''
-            //     })
-            // })
             .catch(res => {
                 this.setState({ error: res.error })
             })
