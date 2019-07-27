@@ -55,7 +55,7 @@ export class CardListProvider extends Component {
     }
 
     setDeck = () => {
-        fetch('http://localhost:8000/api/deck/')
+        fetch(`${config.API_ENDPOINT}/deck/`)
         .then(response => response.json())
         .then(response => this.setState({
             decks: response

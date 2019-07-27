@@ -80,8 +80,8 @@ export default class Signup extends Component {
                             onChange={(e)=> this.handleChange(e)}
                         />
                         <img onClick={()=> this.handlePassword()} src={this.state.passwordHidden ? 
-                        '/assets/hide.png' : 
-                        '/assets/show.png'
+                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/hide.png?raw=true' : 
+                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/show.png?raw=true'
                         }
                         alt={this.state.passwordHidden? 'hidden': 'shown'}                        
                         >
@@ -92,8 +92,8 @@ export default class Signup extends Component {
                             onChange={(e)=> this.handleSecondPassword(e)}
                         />
                         <img onClick={()=> this.handleCheckPassword()} src={this.state.checkPasswordHidden ? 
-                        '/assets/hide.png' : 
-                        '/assets/show.png'
+                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/hide.png?raw=true' : 
+                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/show.png?raw=true'
                         }
                         alt={this.state.checkPasswordHidden? 'hidden': 'shown'}                        
                         >

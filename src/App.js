@@ -15,16 +15,7 @@ import CardListContext from './contexts/CardListContext';
 
 
 export default class App extends Component {
-  constructor(){
-    if (window.performance) {
-      if (performance.navigation.type === 1) {
-        alert( "This page is reloaded" );
-      } else {
-        alert( "This page is not reloaded");
-      }
-    }
-    super()
-  }
+
   static contextType = CardListContext
 
 
