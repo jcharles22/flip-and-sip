@@ -42,7 +42,6 @@ export default class CardCreator extends Component {
     }
 
     handleDeckSelected = (e) => {
-        console.log()
         let index = e.target.id
         let deckId = e.target.dataset.id
         let newSelected = this.state.deckId
@@ -89,7 +88,6 @@ export default class CardCreator extends Component {
 
     }
     render() {
-        console.log(this.state)
         return (
             <div className='CardCreator'>
                 <label>Enter a title:</label>

@@ -6,7 +6,6 @@ import '../css/DeckScreen.css'
 export default class DeckScreen extends Component {
     static contextType = CardListContext;
     render() {
-        console.log(this.context)
         return (
             <>
                 <p>Choose a deck to play with</p>

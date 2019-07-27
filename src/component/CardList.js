@@ -26,7 +26,6 @@ export default class CardList extends Component {
         if(TokenService.hasAuthToken()){
             let cardId = cardKey.target.id;
             let deckId = this.state.show[0].deck_id;
-            console.log(cardId, deckId)
             this.context.handleCardChange(cardId, deckId)
 
         }        
@@ -59,7 +58,6 @@ export default class CardList extends Component {
         this.context.changeSelectedDeck(deck)
         
         let show = this.state.cards.filter(card => card.deck_title === deck)
-        console.log(show)
         this.setState({
             show
         })
