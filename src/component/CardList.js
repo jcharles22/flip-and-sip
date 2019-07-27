@@ -15,21 +15,18 @@ export default class CardList extends Component {
     }
     componentWillMount() {
         let show = this.state.cards.filter(card => card.deck_title === this.state.selected)
-        console.log(show)
         show = show.sort((a,b) => {
             return (a.card_id - b.card_id || a.deck_id - b.deck_id)
         })
         this.setState({
             show,
         })
-        console.log(this.context.deckSelected)
-
     }
     handleClick=(cardKey)=>{
         if(TokenService.hasAuthToken()){
             let cardId = cardKey.target.id;
             let deckId = this.state.show[0].deck_id;
-            
+            console.log(cardId, deckId)
             this.context.handleCardChange(cardId, deckId)
 
         }        
@@ -39,7 +36,6 @@ export default class CardList extends Component {
     }
 
     renderCards=()=>{
-        console.log(this.context.cards)
         return(
         this.state.show.map(card =>{
             return(

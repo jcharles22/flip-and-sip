@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "flip-n-sip",
+  "name": "Flip and Sip",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAB01+gAAAAAAAXC4wDr8/UAtsnMAA/n8gBNzeMA2OHjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAESYAJgJgERERJgAmAmARERElACZycCIiESV2dnJwd3IRJXJ2cnARchEmcnJycBFyESZydnVwEXIRJXJ1dXARchElcnVycBFyESUCJXJwEXIRJQIlcmB3chEiIiIiIiIiESVVVVUicRERREMzMzRxERFDMzMzNBEREUREREREERHADwAAwA8AAMAAAADAAAAAwAwAAMAMAADADAAAwAwAAMAMAADADAAAwAAAAMAAAADABwAAwAcAAMAPAADADwAA",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }

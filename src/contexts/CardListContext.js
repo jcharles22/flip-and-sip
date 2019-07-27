@@ -8,6 +8,7 @@ const CardListContext = React.createContext({
     error: null,
     userId: 2,
     deckSelected: '',
+    players: [],
     setError: () => {},
     clearError: () => {},
     setCards: () => {},
@@ -187,8 +188,7 @@ export class CardListProvider extends Component {
             deck_id
         })
         }) 
-        .then(res => console.log(res))
-        setTimeout(()=> {this.setCards(); }, 10)
+        setTimeout(()=> {this.setCards(); }, 100)
     }
 
     handleSubmit=(newCard)=>{

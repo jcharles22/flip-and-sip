@@ -12,7 +12,7 @@ export default class GamePage extends Component {
 
 
     showCards= () => {
-
+        if(this.context.playingCards) {
         if(this.state.currentCard >= this.context.playingCards.length){
             return (
                 <div className='card'>
@@ -27,6 +27,7 @@ export default class GamePage extends Component {
                 <p>{this.context.playingCards[this.state.currentCard].card_desc}</p>
             </div>)
         }
+    }
     }
     flip=()=>{
         TweenMax.from('.cardContainer', .5, {opacity:0, scale:0, ease:Bounce.easeOut})
