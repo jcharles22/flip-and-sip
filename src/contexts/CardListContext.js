@@ -149,11 +149,9 @@ export class CardListProvider extends Component {
         let playingCards = this.state.playingCards
         
         playingCards = playingCards.filter(card => card.active)
-        console.log(playingCards)
         playingCards.map((card, index)=> {
             return (playingCards[index].card_desc=card.card_desc.replace('random player', ''+ this.randomPlayer() +'' ))
         })
-        console.log(playingCards)
         playingCards = this.shuffleCards(playingCards) 
         this.setState({
             playingCards : playingCards
@@ -170,11 +168,9 @@ export class CardListProvider extends Component {
         let updatedCard = this.state.cards.filter(obj => {
         return (obj.card_id === cardId && obj.deck_id === deckId)
         })
-        console.log(updatedCard[0])
         let { card_id, deck_id} = updatedCard[0]
         let active = !updatedCard[0].active
         let userName = this.state.userName
-        console.log(card_id, active, userName, deck_id)
         fetch(`${config.API_ENDPOINT}/card`, {
         method: 'PATCH',
         headers: {
@@ -202,7 +198,6 @@ export class CardListProvider extends Component {
                                 }
                             })
         
-        console.log(deck)
         
         fetch(`${config.API_ENDPOINT}/card`, {
           method: 'POST',
@@ -223,7 +218,6 @@ export class CardListProvider extends Component {
     }
 
     handleDeckSelected=(deckId) => {
-        console.log(this.state.cards)
         let deck = parseInt(deckId.target.id)
         let playingCards = this.state.cards
         playingCards = playingCards.filter(card => card.deck_id === deck)
