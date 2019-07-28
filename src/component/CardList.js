@@ -47,7 +47,6 @@ export default class CardList extends Component {
                 >
                     <h2 id={card.card_id} >{card.card_title}</h2>
                     <p id={card.card_id} >{card.card_desc}</p>
-                    <p id={card.card_id} className='author'>- {card.user_name}</p>
                 </section>)
         }
         ))
