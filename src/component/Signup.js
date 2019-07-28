@@ -49,6 +49,7 @@ export default class Signup extends Component {
             user_name,
             password
         })
+            .then(res => this.props.history.push('/Login'))
             .catch(res => {
                 this.setState({ error: res.error })
             })

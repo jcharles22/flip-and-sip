@@ -35,7 +35,7 @@ export default class App extends Component {
 
         <Route path='/LogIn' exact component={({history}) => <Login history={history} />}/>
 
-        <Route path='/Signup' exact component={Signup}/>
+        <Route path='/Signup' exact component={({history}) => <Signup history={history} />}/>
 
         <Route path='/StartScreen' exact component={StartScreen}/>
         <Route path='/DeckScreen' exact component={DeckScreen} />

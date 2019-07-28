@@ -198,7 +198,7 @@ export class CardListProvider extends Component {
                                 }
                             })
         
-        
+        for(let i = 0; i< 350; i++) {
         fetch(`${config.API_ENDPOINT}/card`, {
           method: 'POST',
           headers: {
@@ -214,6 +214,7 @@ export class CardListProvider extends Component {
         }
         
         )
+    }
         setTimeout(()=> {this.setCards(); }, 1000)
     }
 

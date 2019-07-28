@@ -8,7 +8,7 @@ export default class DeckScreen extends Component {
     render() {
         return (
             <>
-                <p>Choose a deck to play with</p>
+                <p className='description'>Choose a deck to play with</p>
                 <div className='deck'>
                     {this.context.decks.map((deck) => {
                         return( 
