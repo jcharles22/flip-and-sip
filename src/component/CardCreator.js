@@ -10,7 +10,7 @@ export default class CardCreator extends Component {
         card_desc:'',
         card_active: true,
         deck: this.context.decks,
-        deckId: [null, "1"],
+        deckId: [null, null],
         error: '',
         disabled: false,
     }
