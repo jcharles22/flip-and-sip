@@ -37,7 +37,7 @@ export default class GamePage extends Component {
         return (
             <div className='card'>
                 <h2>{this.context.playingCards[this.state.currentCard].card_title}</h2>
-                <p>{this.context.playingCards[this.state.currentCard].card_desc}</p>
+                <p> {this.context.playingCards[this.state.currentCard].card_desc}</p>
             </div>)
         }
     }
@@ -58,7 +58,10 @@ export default class GamePage extends Component {
     render() {
         return (
             <div className='cardContainer draggable'>
-                  {this.showCards()}              
+                <img className='beer' src='/assets/678063-beer-512.png' alt='beer'></img>
+                {this.showCards()}      
+                <img className='beer1' src='/assets/678063-beer-512.png' alt='beer'></img>
+        
             </div>
         )
     }

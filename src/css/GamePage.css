@@ -16,3 +16,23 @@
   text-align: center;
   
 }
+.card>h2 {
+  padding: 25px 0;
+}
+.card>p {
+  float: left;
+  padding-left: 10px;
+}
+.cardContainer>.beer{
+  transform: scaleX(-1);
+  position: absolute;
+  left: 30px;
+  top: 10px;
+  height: 46px;
+}
+.cardContainer>.beer1{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 46px;
+}
