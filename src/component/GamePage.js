@@ -58,9 +58,9 @@ export default class GamePage extends Component {
     render() {
         return (
             <div className='cardContainer draggable'>
-                <img className='beer' src='/assets/678063-beer-512.png' alt='beer'></img>
+                <img className='beer' src='https://github.com/jcharles22/flip-and-sip/blob/playingWithColor/public/assets/678063-beer-512.png?raw=true' alt='beer'></img>
                 {this.showCards()}      
-                <img className='beer1' src='/assets/678063-beer-512.png' alt='beer'></img>
+                <img className='beer1' src='https://github.com/jcharles22/flip-and-sip/blob/playingWithColor/public/assets/678063-beer-512.png?raw=true' alt='beer'></img>
         
             </div>
         )

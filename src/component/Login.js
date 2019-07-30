@@ -71,7 +71,7 @@ export default class Login extends Component {
                     className='userPassword'
                     onChange={(e) => this.handleChange(e)}    
                 />                
-                <img onClick={()=> this.handlePassword()} src={this.state.passwordHidden ? 
+                <img className='eye' onClick={()=> this.handlePassword()} src={this.state.passwordHidden ? 
                     '/assets/hide.png' : 
                     '/assets/show.png'
                     }

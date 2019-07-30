@@ -8,10 +8,10 @@
 .loginFields>label{
     display: block;
 }
-img:hover{
+.eye:hover{
     cursor: pointer;    
 }
-img{
+.eye{
     margin-left: -22px;
     height: 20px;
     vertical-align: bottom;
