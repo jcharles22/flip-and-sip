@@ -31,7 +31,7 @@ export class CardListProvider extends Component {
     state = {
         cards: [],
         decks: [],
-        players: ['player1'],
+        players: ['player 1'],
         error: null,
         loggedIn: TokenService.hasAuthToken(),
         playingCards: [],
@@ -115,7 +115,7 @@ export class CardListProvider extends Component {
     }
     handleAddPlayer=()=> { 
         let newState = this.state.players
-        newState.push(`player${this.state.players.length+1}`)
+        newState.push(`player ${this.state.players.length+1}`)
         this.setState({
           players: newState
         })
@@ -135,7 +135,7 @@ export class CardListProvider extends Component {
         let { value } = e.target
         let newState = this.state.players
         let checkValue = value.slice(0,-1)
-        if(checkValue === `player${parseInt(index)+1}`) {
+        if(checkValue === `player ${parseInt(index)+1}`) {
           newState[index] = value.slice(-1)
           this.setState({
             players: newState

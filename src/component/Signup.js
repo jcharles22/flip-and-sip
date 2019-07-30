@@ -14,7 +14,6 @@ export default class Signup extends Component {
             error: 'Password must containe one Upper case, lower case, number, and special, character'
         }
     }
-
     handlePassword=()=> {
         this.setState({
             passwordHidden: !this.state.passwordHidden
@@ -35,7 +34,6 @@ export default class Signup extends Component {
             checkValue:e.target.value
         })     
     }
-
     handleUserName=(e)=> {
         this.setState({
             user_name:e.target.value
@@ -52,10 +50,8 @@ export default class Signup extends Component {
             .then(res => this.props.history.push('/Login'))
             .catch(res => {
                 this.setState({ error: res.error })
-            })
-        
+            })     
     }
-
     handleSubmitButtonDisplay=()=>{
         if(this.state.password === this.state.checkValue){
             return(<button type='button' onClick={(e)=> this.handleSubmit(e)}>Submit</button>)
@@ -71,8 +67,7 @@ export default class Signup extends Component {
                     <label>Enter a User-Name:</label>
                         <input type='text' value={this.state.user_name} 
                             onChange={(e) => this.handleUserName(e)}
-                        />
-                    
+                        />    
                     <label>Enter a Password:</label>
                         <input  
                             type={this.state.passwordHidden ? "password" : "text"}
@@ -98,10 +93,8 @@ export default class Signup extends Component {
                         alt={this.state.checkPasswordHidden? 'hidden': 'shown'}                        
                         >
                     </img>
-
                     {this.handleSubmitButtonDisplay()}
                     <div>{error && <p>{error}</p>}</div>
-
                 </fieldset>
             </div>
         )

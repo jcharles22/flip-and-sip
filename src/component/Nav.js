@@ -34,7 +34,7 @@ export default class home extends Component {
                     {this.context.loggedIn ? this.renderLoggedOut() :  this.renderLoggedIn()}
                     <li><Link to='/CardList'>Cards</Link></li>
                 </ul>
-            </nav>
+            </nav> 
         )
     }
 }

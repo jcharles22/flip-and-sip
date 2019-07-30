@@ -5,8 +5,7 @@
     border: 1px solid black;
     display:inline-block;
     margin: 10px 0px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 15px 20px;
     
 }
 
@@ -24,6 +23,9 @@ h5{
     border: 1px solid black;
     padding: 5px;
     margin: 0 5px;
+}
+.decks:hover{
+    cursor: pointer;
 }
 .selected{
     background-color: rgb(49, 49, 49);

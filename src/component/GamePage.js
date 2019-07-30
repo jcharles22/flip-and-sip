@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import CardListContext from '../contexts/CardListContext';
-import {TweenMax, Bounce} from "gsap";
+import {TweenMax, Bounce } from "gsap";
 import '../css/GamePage.css';
+import { Draggable } from 'gsap/all'
 
 export default class GamePage extends Component {
     static contextType = CardListContext;
+    constructor() {
+        super()
+         this.nextCard=this.nextCard.bind('this')
+    }
+   
+
+    componentDidMount=()=> {
+        console.log('yeah')
+        Draggable.create('.draggable', {
+            type: 'x,y',
+            onRelease: ()=> {
+              this.nextCard()
+            },
+          });
+    };
+    
 
     state={
         currentCard: 0,
@@ -30,7 +47,7 @@ export default class GamePage extends Component {
     }
     }
     flip=()=>{
-        TweenMax.from('.cardContainer', .5, {opacity:0, scale:0, ease:Bounce.easeOut})
+        TweenMax.fromTo('.cardContainer', .5, {x: 0, y: 0, opacity:0, scale:0, ease:Bounce.easeOut}, {opacity:1, scale:1})
     }
     nextCard= () => {
         this.flip()
@@ -44,7 +61,7 @@ export default class GamePage extends Component {
 
     render() {
         return (
-            <div className='cardContainer' onClick={() => this.nextCard()}>
+            <div className='cardContainer draggable' onClick={() => this.nextCard()}>
                   {this.showCards()}              
             </div>
         )

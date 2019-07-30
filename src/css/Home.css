@@ -1,17 +1,17 @@
 .homeButtons>a{
     text-decoration: none;
-    color: black;
+    color: #4c4450;
     display: block;
     width: 175px;
     margin: 30px auto;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #4c4450;
     font-size: 25px;
 }
 .homeButtons>a:hover {
-    opacity: .7;
-    background-color: grey;
-    color:white;
+    transition: .5s;
+    background-color: #2d2830;
+    color:rgb(251, 219, 111);
 }
 .description{
     text-align: center;

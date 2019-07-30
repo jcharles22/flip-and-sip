@@ -72,8 +72,8 @@ export default class Login extends Component {
                     onChange={(e) => this.handleChange(e)}    
                 />                
                 <img onClick={()=> this.handlePassword()} src={this.state.passwordHidden ? 
-                    'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/hide.png?raw=true' : 
-                    'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/show.png?raw=true'
+                    '/assets/hide.png' : 
+                    '/assets/show.png'
                     }
                     alt={this.state.passwordHidden? 'hidden': 'shown'}                        
                     >

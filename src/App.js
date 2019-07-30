@@ -29,7 +29,7 @@ export default class App extends Component {
     return (
       <div>
         <Nav></Nav>
-        <h1><Link to='/'>Flip & Sip</Link></h1>
+        <h1><Link to='/'><img className = 'logo' src='/assets/Untitled-1.png' alt='flip and sip logo'></img></Link></h1>
         
         <Route path='/' exact component={Home}/>
 

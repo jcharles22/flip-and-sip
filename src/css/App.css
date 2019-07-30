@@ -1,11 +1,14 @@
+
 * {
     box-sizing: border-box;
     /* font-size: 0; */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    margin: 0;
   }
   
 h1{
+    font-family: 'Roboto Slab', serif;
     margin-top: 0px;
     margin-bottom: 0px;
     text-align: center;
@@ -14,7 +17,7 @@ h1{
 }
 
 body{
-    background-color: #A9B7C0;
+    background-color: #1BB5F2;
     min-width: 320px;
 }
 h1>a{
@@ -22,3 +25,7 @@ h1>a{
     color:rgb(251, 219, 111)
 }
 
+.logo{
+    height: 200px;
+    
+}

@@ -46,7 +46,7 @@ export default class CardList extends Component {
                     ${card.active? 'active': 'notActive'}`} 
                 >
                     <h2 id={card.card_id} >{card.card_title}</h2>
-                    <p id={card.card_id} >{card.card_desc}</p>
+                    <p id={card.card_id} className="card-id">{card.card_desc}</p>
                 </section>)
         }
         ))
