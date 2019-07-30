@@ -30,7 +30,8 @@ export default class App extends Component {
       <div>
         <Nav></Nav>
         <h1><Link to='/'><img className = 'logo' src='https://github.com/jcharles22/flip-and-sip/blob/playingWithColor/public/assets/Untitled-1.png?raw=true' alt='Flip and Sip'></img></Link></h1>
-        
+        <h1 className='logoText'><Link to='/'>Flip and Sip</Link></h1>
+
         <Route path='/' exact component={Home}/>
 
         <Route path='/LogIn' exact component={({history}) => <Login history={history} />}/>
