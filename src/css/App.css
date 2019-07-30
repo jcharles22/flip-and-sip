@@ -38,7 +38,7 @@ h1>a{
     text-decoration: none;
 }
 
-@media only screen and (max-width: 768px) and (max-height: 600px) {
+@media only screen and (max-height: 500px) {
     .logo{
         display: none;
     }
@@ -46,7 +46,17 @@ h1>a{
         display: block;
     }
 }
-@media only screen and (max-width: 1280px) and (max-height: 600px) {
+/* @media only screen and (min-width: 768px) and (min-height: 500px) {
+    .logo{
+        display: show;
+    }
+    .logoText{
+        display: none;
+    }
+} */
+
+
+/* @media only screen and (max-width: 1280px) and (min-height: 400px) {
     .logo{
         display: none;
     }
@@ -54,7 +64,7 @@ h1>a{
         display: block;
     }
 }
-@media only screen and (min-width: 1280px) and (min-height: 800px) {
+@media only screen and (max-width: 1280px) and (min-height: 400px) {
     .navBarContainer{
         margin-bottom: 40px;
     }
@@ -65,4 +75,4 @@ h1>a{
         display: none;
     }
     
-}
+} */

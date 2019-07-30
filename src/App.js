@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Home from './component/Home'
 import Login from './component/Login'
 import Signup from './component/Signup'
@@ -10,6 +10,7 @@ import CardList from './component/CardList'
 import CardCreator from './component/CardCreator'
 import DeckScreen from './component/DeckScreen'
 import TokenService from './services/token-service'
+import Logo from './component/Logo'
 import './css/App.css'
 import CardListContext from './contexts/CardListContext';
 
@@ -29,8 +30,7 @@ export default class App extends Component {
     return (
       <div>
         <Nav></Nav>
-        <h1><Link to='/'><img className = 'logo' src='https://github.com/jcharles22/flip-and-sip/blob/playingWithColor/public/assets/Untitled-1.png?raw=true' alt='Flip and Sip'></img></Link></h1>
-        <h1 className='logoText'><Link to='/'>Flip and Sip</Link></h1>
+       <Logo></Logo>
 
         <Route path='/' exact component={Home}/>
 
