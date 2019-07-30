@@ -5,18 +5,14 @@ import '../css/GamePage.css';
 import { Draggable } from 'gsap/all'
 
 export default class GamePage extends Component {
-    static contextType = CardListContext;
-    constructor() {
-        super()
-         this.nextCard=this.nextCard.bind('this')
-    }
-   
+    static contextType = CardListContext;  
 
     componentDidMount=()=> {
         console.log('yeah')
         Draggable.create('.draggable', {
             type: 'x,y',
             onRelease: ()=> {
+                console.log(this.state.currentCard)
               this.nextCard()
             },
           });
@@ -54,14 +50,14 @@ export default class GamePage extends Component {
         this.setState({
             currentCard: this.state.currentCard + 1
         })
-        if(this.state.currentCard >= this.context.playingCards.length){
+        if(this.state.currentCard >= this.context.playingCards.length+1){
             this.props.history.push('/')
         }
     }
 
     render() {
         return (
-            <div className='cardContainer draggable' onClick={() => this.nextCard()}>
+            <div className='cardContainer draggable'>
                   {this.showCards()}              
             </div>
         )
