@@ -43,7 +43,7 @@ export default class CardList extends Component {
                     id={card.card_id}
                     onClick={(cardKey)=> this.handleClick(cardKey)}
                     className={`ListCardContainer column 
-                    ${card.active? 'active': 'notActive'}`} 
+                    ${card.active? 'cardGreen': 'cardRed'}`} 
                 >
                     <h2 id={card.card_id} >{card.card_title}</h2>
                     <p id={card.card_id} className="card-id">{card.card_desc}</p>
@@ -67,6 +67,7 @@ export default class CardList extends Component {
         return (
             <div className='row'>
                 {TokenService.hasAuthToken() ? "" : <h5>{this.state.error}</h5>}
+                <div className='deckspan'>
                 {this.context.decks.map((deck)=> {
                     return (
                         <h3 className={`decks ${this.state.selected===deck.deck_title ? 'selected': ''}`} 
@@ -77,7 +78,12 @@ export default class CardList extends Component {
                             {deck.deck_title}
                         </h3>
                     )
-                })}{this.renderCards()}
+                }
+                
+                )}
+                </div>
+                
+                {this.renderCards()}
                 
                 
                 

@@ -2,10 +2,11 @@
     width: 45%;
     min-width: 320px;
     min-height: 100px;
-    border: 1px solid black;
     display:inline-block;
     margin: 10px 0px;
     padding: 15px 20px;
+    border-radius: 25px;
+    background-color: rgb(217, 223, 210)
     
 }
 
@@ -18,31 +19,45 @@ h5{
 
 }
 .decks{
-    width: 40%;
+    display: inline-block;
+    width: 50%;
     text-align: center;
-    border: 1px solid black;
     padding: 5px;
-    margin: 0 5px;
+    margin: 0 auto;
+    font-size: 28px;
+    letter-spacing: 2px;
+
 }
+.deckspan{
+    width: 92%;
+    text-align: center;
+    margin: 20px;
+}
+
 .decks:hover{
     cursor: pointer;
 }
 .selected{
-    background-color: rgb(49, 49, 49);
-    color: white;
+    color: rgb(0, 0, 0);
+    border: 3px solid green;
 
 }
+
+
 .row{
    display: flex;
    flex-wrap: wrap;
    justify-content: space-evenly;
 }
 
-.active{
-    background-color:green;
+.cardGreen {
+    border: 8px solid green;
+    background-color: rgba(87, 255, 87, 0.397);
 }
-.notActive{
-    background-color:red;
+
+.cardRed {
+    border: 8px solid red;
+    background-color: rgba(255, 87, 87, 0.397)
 }
 
 .ListCardContainer>h2{
