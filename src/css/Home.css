@@ -1,17 +1,21 @@
 .homeButtons>a{
     text-decoration: none;
-    color: #4c4450;
     display: block;
     width: 175px;
     margin: 30px auto;
     text-align: center;
-    border: 1px solid #4c4450;
+    border: 2px solid #000000;
     font-size: 25px;
+    color: black;
+  
+
+  font-weight: bold;
+  text-align: center;
 }
-.homeButtons>a:hover {
-    transition: .5s;
-    background-color: #2d2830;
-    color:rgb(251, 219, 111);
+
+.homeButtons>a:active{
+    box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+    transform: translateY(4px);
 }
 .description{
     text-align: center;

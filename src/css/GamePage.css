@@ -1,6 +1,6 @@
 .cardContainer{
     border: 3px solid white;
-    background-color: rgb(236, 223, 201);
+
     display: block;
     width: 400px;
     height: 200px;
@@ -12,9 +12,11 @@
     border-radius: 30px;
     
 }
+
+
 .card{
   text-align: center;
-  
+  color: black;
 }
 .card>h2 {
   padding: 25px 0;

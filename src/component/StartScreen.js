@@ -13,7 +13,7 @@ export default class StartScreen extends Component {
                     {this.context.players.map((player, index) => (
                         <input type='text' 
                             key={`player${index+1}`} 
-                            className={`playerName player${index}`}
+                            className={index}
                             value={player}
                             onChange = {(e) => this.context.handleNameChange(e)} 
                             autoFocus
@@ -30,3 +30,5 @@ export default class StartScreen extends Component {
         )
     }
 }
+
+

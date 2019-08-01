@@ -7,9 +7,13 @@
     padding: 15px 20px;
     border-radius: 25px;
     background-color: rgb(217, 223, 210)
-    
 }
-
+.ListCardContainer:active{
+    transform: translateY(4px);
+}
+.ListCardContainer:hover{
+    cursor: pointer;
+}
 h5{
     font-size: 30px;
     font-weight: 400;
@@ -26,7 +30,7 @@ h5{
     margin: 0 auto;
     font-size: 28px;
     letter-spacing: 2px;
-
+    
 }
 .deckspan{
     width: 92%;
@@ -37,10 +41,14 @@ h5{
 .decks:hover{
     cursor: pointer;
 }
-.selected{
-    color: rgb(0, 0, 0);
-    border: 3px solid green;
 
+.selected:after{
+        content: ""; 
+        display: block; 
+        margin: 0 auto; 
+        width: 50%;
+        padding-top: 10px;
+        border-bottom: 3px solid black;
 }
 
 
@@ -70,4 +78,15 @@ h5{
     font-size: 19px;
     text-align: right;
     margin-right: 15px;
+}
+
+@media only screen and (max-width: 768px)  {
+    .decks{
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+        
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
 }
