@@ -1,21 +1,22 @@
 .loginFields {
     max-width: 320px;
+    background-color: rgba(255, 251, 251, 0.685);
     clear: both;
     margin: 0 auto;
-    padding-right: 50px;
     font-size: 25px;
+    border: 2px solid black;
 }
 .loginFields>label{
     display: block;
 }
-.eye:hover{
+/* .eye:hover{
     cursor: pointer;    
 }
 .eye{
     margin-left: -22px;
     height: 20px;
     vertical-align: bottom;
-}
+} */
 .loginError {
     font-size: 18px;
 }
@@ -24,4 +25,44 @@
     font-size: 18px;
     text-decoration: none;
     list-style-type: none;
+}
+.loginFields>h4{
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 15px 0;
+}
+input[type=text], input[type=password]{
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    outline: none;
+    background: none;
+    border-width:0 0 2px;
+    border-color: black;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+    border-color: grey;
+
+}
+.loginFields>button{
+    border: none;
+    outline: none;
+    height: 30px;
+    color: white;
+    letter-spacing: 2px;
+    background-color: #E74C3C;
+    display: block;
+    font-size: 18px;
+    width: 243px;
+    margin: 0 36.5px;
+    cursor: pointer;
+    transition: box-shadow .4s ease;
+}
+.loginFields>button:hover{
+    box-shadow: 1px 1px 5px #555;  
+}
+.loginFields>input{
+    display: block;
+    margin: auto;
 }

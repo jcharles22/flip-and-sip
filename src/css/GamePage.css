@@ -12,12 +12,15 @@
     border-radius: 30px;
     
 }
-
+.grabbable {
+  cursor: grab ;
+  }
 
 .card{
   text-align: center;
   color: black;
 }
+
 .card>h2 {
   padding: 25px 0;
 }

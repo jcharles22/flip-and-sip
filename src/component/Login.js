@@ -58,31 +58,31 @@ export default class Login extends Component {
     render() {
         const { error } = this.state
         return (
-            <fieldset className="loginFields">
-                <legend>Login</legend>
+            <div className='loginFields'>
+                <h4>Login:</h4>
                 <div className='loginError'>{error && <p>*{error}</p>}</div>
-                <label htmlFor="userName"> UserName:</label>
-                    <input type="text" name='userName' value={this.state.user_name} onChange={(e)=> this.hanldeUserName(e)}/>
+                    <input type="text" name='userName' placeholder='Username' value={this.state.user_name} onChange={(e)=> this.hanldeUserName(e)}/>
                 <br />
-                <label htmlFor='password'>Password:</label>
                 <input type={this.state.passwordHidden ? "password" : "text"} 
                     value={this.state.password}
                     name='password'
                     className='userPassword'
+                    placeholder='password'
                     onChange={(e) => this.handleChange(e)}    
                 />                
-                <img className='eye' onClick={()=> this.handlePassword()} src={this.state.passwordHidden ? 
-                    '/assets/hide.png' : 
-                    '/assets/show.png'
-                    }
-                    alt={this.state.passwordHidden? 'hidden': 'shown'}                        
+                <img className='eye' onClick={()=> this.handlePassword()} 
+                // src={this.state.passwordHidden ? 
+                //     '/assets/hide.png' : 
+                //     '/assets/show.png'
+                //     }
+                //     alt={this.state.passwordHidden? 'hidden': 'shown'}                        
                     >
                 </img>
-                <button onClick={(ev) => this.handleSubmitJwtAuth(ev)}>submit</button>
+                <button onClick={(ev) => this.handleSubmitJwtAuth(ev)}>Sign in</button>
                 <li>username: user </li>
                 <li>password: password</li>
                 <li>for test purposes</li>
-            </fieldset>
+            </div>
         )
     }
 }

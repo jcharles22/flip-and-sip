@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardListContext from '../contexts/CardListContext';
-import {TweenMax, Bounce } from "gsap";
+import {TweenMax, TweenLite, Bounce } from "gsap";
 import '../css/GamePage.css';
 import { Draggable } from 'gsap/all'
 
@@ -11,11 +11,13 @@ export default class GamePage extends Component {
         console.log('yeah')
         Draggable.create('.draggable', {
             type: 'x,y',
+            cursor: 'grab',
             onRelease: ()=> {
                 console.log(this.state.currentCard)
               this.nextCard()
             },
           });
+  
     };
     
 
@@ -57,7 +59,7 @@ export default class GamePage extends Component {
 
     render() {
         return (
-            <div className='cardContainer draggable'>
+            <div className='cardContainer draggable' id='cardDisplays'>
                 {this.showCards()}      
         
             </div>
