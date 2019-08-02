@@ -64,35 +64,24 @@ export default class Signup extends Component {
         return (
             <div>
                 <fieldset className='signUpFields'>
-                    <label>Enter a User-Name:</label>
-                        <input type='text' value={this.state.user_name} 
+                    <h4>Sign up:</h4>
+                    <input type='text' placeholder='Enter user name' value={this.state.user_name} 
                             onChange={(e) => this.handleUserName(e)}
-                        />    
-                    <label>Enter a Password:</label>
-                        <input  
+                    />   
+                    <br /> 
+                    <input  
                             type={this.state.passwordHidden ? "password" : "text"}
                             value={this.state.value}
+                            placeholder='Enter password'
                             onChange={(e)=> this.handleChange(e)}
-                        />
-                        <img className='eye' onClick={()=> this.handlePassword()} src={this.state.passwordHidden ? 
-                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/hide.png?raw=true' : 
-                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/show.png?raw=true'
-                        }
-                        alt={this.state.passwordHidden? 'hidden': 'shown'}                        
-                        >
-                    </img>
-                    <label>Confirm Password:</label>
-                        <input  
+                    />
+                    <br />
+                    <input  
                             type={this.state.checkPasswordHidden ? "password" : "text"}
+                            placeholder='Confirm password'
                             onChange={(e)=> this.handleSecondPassword(e)}
                         />
-                        <img className='eye' onClick={()=> this.handleCheckPassword()} src={this.state.checkPasswordHidden ? 
-                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/hide.png?raw=true' : 
-                        'https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/show.png?raw=true'
-                        }
-                        alt={this.state.checkPasswordHidden? 'hidden': 'shown'}                        
-                        >
-                    </img>
+                    <br />
                     {this.handleSubmitButtonDisplay()}
                     <div>{error && <p>{error}</p>}</div>
                 </fieldset>

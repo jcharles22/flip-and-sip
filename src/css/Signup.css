@@ -1,10 +1,17 @@
 .signUpFields {
     max-width: 320px;
+    background-color: rgba(255, 251, 251, 0.685);
     clear: both;
     margin: 0 auto;
-    padding-right: 50px;
     font-size: 25px;
+    border: 2px solid black;
 }
+.signUpFields>h4{
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 15px 0;
+}
+
 .signUpFields>label{
     display: block;
 }
@@ -15,4 +22,25 @@
     margin-left: -22px;
     height: 20px;
     vertical-align: bottom;
+}
+.signUpFields>input{
+    display: block;
+    margin: auto;
+}
+.signUpFields>button{
+    border: none;
+    outline: none;
+    height: 30px;
+    color: white;
+    letter-spacing: 2px;
+    background-color: #E74C3C;
+    display: block;
+    font-size: 18px;
+    width: 243px;
+    margin: 0 36.5px;
+    cursor: pointer;
+    transition: box-shadow .4s ease;
+}
+.signUpFields>button:hover{
+    box-shadow: 1px 1px 5px #555;  
 }
