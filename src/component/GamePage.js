@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardListContext from '../contexts/CardListContext';
-import {TweenMax, TweenLite, Bounce } from "gsap";
+import {TweenMax, Bounce } from "gsap";
 import '../css/GamePage.css';
 import { Draggable } from 'gsap/all'
 

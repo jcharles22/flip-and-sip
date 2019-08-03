@@ -32,6 +32,14 @@ h5{
     letter-spacing: 2px;
     
 }
+
+.decks:hover{
+    color: rgb(109, 109, 109);
+    transition: .3s;
+}
+.decks:active{
+    transform: translateY(4px);
+}
 .deckspan{
     width: 92%;
     text-align: center;
@@ -62,10 +70,18 @@ h5{
     border: 8px solid green;
     background-color: rgba(87, 255, 87, 0.397);
 }
+.cardGreen:hover {
+    border: 8px solid rgb(245, 71, 71);
+    background-color: rgba(199, 72, 72, 0.397);
+}
 
 .cardRed {
     border: 8px solid red;
     background-color: rgba(255, 87, 87, 0.397)
+}
+.cardRed:hover {
+    border: 8px solid rgb(6, 185, 6);
+    background-color: rgba(120, 252, 120, 0.397);
 }
 
 .ListCardContainer>h2{

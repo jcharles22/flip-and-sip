@@ -70,14 +70,16 @@ export default class Login extends Component {
                     placeholder='password'
                     onChange={(e) => this.handleChange(e)}    
                 />                
-                <img className='eye' onClick={()=> this.handlePassword()} 
-                // src={this.state.passwordHidden ? 
-                //     '/assets/hide.png' : 
-                //     '/assets/show.png'
-                //     }
-                //     alt={this.state.passwordHidden? 'hidden': 'shown'}                        
+                {/* <img className='eye' onClick={()=> this.handlePassword()} 
+
+                src={this.state.passwordHidden ? 
+                    '/assets/hide.png' : 
+                    '/assets/show.png'
+                    }
+                    alt={this.state.passwordHidden? 'hidden': 'shown'}                        
                     >
-                </img>
+                </img> */}
+                <br />
                 <button onClick={(ev) => this.handleSubmitJwtAuth(ev)}>Sign in</button>
                 <li>username: user </li>
                 <li>password: password</li>

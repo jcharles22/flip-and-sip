@@ -9,10 +9,9 @@ export default class DeckScreen extends Component {
 
     render() {
         return (
-            <>
+            <div className='deckWrapper'>
+                <p className='deckDescription'>Choose a deck to play with</p>
                 <div className='deck'>
-                <p className='description'>Choose a deck to play with</p>
-
                     {this.context.decks.map((deck) => {
                         let url = deck.url
                         return( 
@@ -24,7 +23,7 @@ export default class DeckScreen extends Component {
                         )
                     })}
                 </div>
-            </>
+            </div>
         )
     }
 }
