@@ -10,22 +10,34 @@
 
 
 /* select all the buttons on just the start screen */
-.playerNameForm>button, .playerNameForm>a>button{
+.playersButtons>button, .startButton{
     font-size: 18px;
     margin-right: 3px;
     margin-left: 3px;
+    background-color: #E74C3C;
+    color: white;
+}
+.playersButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.playersButtons>button:hover, .startButton:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #555;  
 }
 
 
 .playersInputForm{
-    
+    background-color: rgba(255, 251, 251, 0.685);
+    max-width: 320px;
+
     text-align: center;
     padding-top: 10px;
     margin: 0 auto;
     border: 1px solid black;
     position:relative;
     font-size: 25px;
-    max-width: 600px;
 }
 #container{
     border: 1px solid black;

@@ -81,9 +81,11 @@ export default class Login extends Component {
                 </img> */}
                 <br />
                 <button onClick={(ev) => this.handleSubmitJwtAuth(ev)}>Sign in</button>
-                <li>username: user </li>
-                <li>password: password</li>
-                <li>for test purposes</li>
+                <ul className='signInExample'>
+                    <li>username: user </li>
+                    <li>password: password</li>
+                    <li>for test purposes</li>
+                </ul>
             </div>
         )
     }

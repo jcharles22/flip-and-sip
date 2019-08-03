@@ -21,10 +21,13 @@
     font-size: 18px;
 }
 
-.loginFields>li{
+.loginFields>ul>li{
     font-size: 18px;
     text-decoration: none;
     list-style-type: none;
+}
+.signInExample {
+    margin: 10px auto;
 }
 .loginFields>h4{
     text-align: center;

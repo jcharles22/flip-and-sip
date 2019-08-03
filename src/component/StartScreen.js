@@ -19,12 +19,13 @@ export default class StartScreen extends Component {
                             autoFocus
                         />
                     ))}
-                    
-                    <button onClick={() => this.context.handleRemovePlayer()}>-</button>
-                    <button onClick={() => this.context.handleAddPlayer()}>+</button>
-                    <Link to='/GamePage'>
-                        <button className='startButton' onClick={() => this.context.setPlayersName()}>Cherrs!</button>
-                    </Link>
+                    <section className='playersButtons'>
+                        <button onClick={() => this.context.handleAddPlayer()}>+ Player</button>
+                        <button onClick={() => this.context.handleRemovePlayer()}>Remove</button>
+                        <Link to='/GamePage'>
+                            <button className='startButton' onClick={() => this.context.setPlayersName()}>Cherrs!</button>
+                        </Link>
+                    </section>
                 </label>
             </section>
         )
