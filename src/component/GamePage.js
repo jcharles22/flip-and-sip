@@ -8,12 +8,10 @@ export default class GamePage extends Component {
     static contextType = CardListContext;  
 
     componentDidMount=()=> {
-        console.log('yeah')
         Draggable.create('.draggable', {
             type: 'x,y',
             cursor: 'grab',
             onRelease: ()=> {
-                console.log(this.state.currentCard)
               this.nextCard()
             },
           });

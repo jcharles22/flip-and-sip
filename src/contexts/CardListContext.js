@@ -220,7 +220,6 @@ export class CardListProvider extends Component {
     handleDeckSelected=(deckId) => {
         let deck = parseInt(deckId.target.id)
         let playingCards = this.state.cards
-        console.log(deck)
         playingCards = playingCards.filter(card => card.deck_id === deck)
         this.setState({
             playingCards

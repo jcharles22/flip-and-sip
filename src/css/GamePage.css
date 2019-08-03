@@ -1,6 +1,5 @@
 .cardContainer{
-    border: 3px solid white;
-
+    border: 2px solid linear-gradient(90deg, #eff37b 0%, #a16100 100%);
     display: block;
     width: 400px;
     height: 200px;
@@ -10,6 +9,9 @@
     padding-right: 0;
     position: relative;
     border-radius: 30px;
+    border: 4px solid white;
+    background-image: linear-gradient(8deg, rgba(251, 172, 126, 0.753) 0%, rgba(247, 207, 104, 0.959) 100%);
+    
     
 }
 .grabbable {
@@ -19,9 +21,11 @@
 .card{
   text-align: center;
   color: black;
+
 }
 
 .card>h2 {
+  
   padding: 25px 0;
 }
 .card>p {
