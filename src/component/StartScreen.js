@@ -23,7 +23,7 @@ export default class StartScreen extends Component {
                         <button onClick={() => this.context.handleAddPlayer()}>+ Player</button>
                         <button onClick={() => this.context.handleRemovePlayer()}>Remove</button>
                         <Link to='/GamePage'>
-                            <button className='startButton' onClick={() => this.context.setPlayersName()}>Cherrs!</button>
+                            <button className='startButton' onClick={() => this.context.setPlayersName()}>Cheers!</button>
                         </Link>
                     </section>
                 </label>

@@ -31,10 +31,11 @@ export default class Home extends Component {
                     <Link to ="/CardList">List Cards</Link>
                     {this.context.loggedIn ? this.renderLoggedin() : this.renderLoggedOut()}
                 </section>
-                <p className='description'>Flip-and-sip a fun card drinking game for 2 or more players!</p>
-                <p className='description'>Press play to start or SignIn to create new cards or turn on or off ones in play.</p>
-                <p className='description'>Press play to start then choose a deck and enter players names. Then Click or flick the cards to go thorugh the deck and complete the task on the cards.</p>
-
+                <ul className='descriptionContainer'>
+                    <li className='description' id='desc'>Flip-and-sip a fun card drinking game for 2 or more players!</li>
+                    <li className='description' id='desc'>Press play to start or SignIn to create new cards or turn on or off ones in play.</li>
+                    <li className='description' id='desc'>Press play to start then choose a deck and enter players names. Then Click or flick the cards to go thorugh the deck and complete the task on the cards.</li>
+                </ul>
             </div>
         )
     }

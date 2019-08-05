@@ -70,7 +70,7 @@ export default class CardCreator extends Component {
         return(
             this.state.deck.map((deck, index) =>{
                 return(
-                    <button key={deck.deck_id}  id={index} className={`deckSelect ${this.state.deckId[index]? "selected" : ''}`}  data-id={deck.deck_id} onClick={(e)=> this.handleDeckSelected(e)}>{deck.deck_title}</button>
+                    <button key={deck.deck_id}  id={index} className={`deckSubmit ${this.state.deckId[index]? "selectedDeck" : ''}`}  data-id={deck.deck_id} onClick={(e)=> this.handleDeckSelected(e)}>{deck.deck_title}</button>
                 )
             })
         )
@@ -94,7 +94,7 @@ export default class CardCreator extends Component {
                 <input type='text' onChange={(e)=> this.handleTitle(e)}></input>
                 <label>Enter the descritpion:</label>
                 <textarea onChange={(e)=> this.handleDesc(e)} value={this.state.card_desc}></textarea> 
-                <button onClick={()=> this.addRandomPlayer()}>Add Random Player</button>
+                <button className='addRandom' onClick={()=> this.addRandomPlayer()}>Add Random Player</button>
                 <p>select which deck to add it too.</p>
                 <div className='deckSelectContainer'>
                 {this.hadleDeck()}

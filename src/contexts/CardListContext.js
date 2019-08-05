@@ -78,7 +78,6 @@ export class CardListProvider extends Component {
         })
     }
 
-    
     shuffleCards=cards => {
         let newArray = cards;
         let currentIndex= newArray.length, temporaryValue, randomIndex;
@@ -191,14 +190,12 @@ export class CardListProvider extends Component {
         let { card_title, card_desc, card_active} = newCard
         let deck = newCard.deckId
         deck = deck.filter(deck => {
-                                if(deck === null){
-                                    return null
-                                } else {
-                                    return deck
-                                }
-                            })
-        
-
+            if(deck === null){
+                return null
+            } else {
+                return deck
+            }
+        })
         fetch(`${config.API_ENDPOINT}/card`, {
           method: 'POST',
           headers: {
