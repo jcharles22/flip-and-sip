@@ -2,7 +2,7 @@
 # Flip and Sip
 
 Flip and Sip is a drinking game for 2 or more people to fliip through cards and follow the rules on them.
-Play it at https://flip-and-sip.now.sh/
+Play it at https://flip-and-sip-jaredcharles.vercel.app/
 
 ## Screenshots
 ![Landing page screen shot](https://github.com/jcharles22/flip-and-sip/blob/master/public/assets/landingPage.JPG?raw=true)
