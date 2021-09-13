@@ -11,10 +11,13 @@ export default class CardList extends Component {
         deckId: null,
         cards: this.context.cards,
         show: [],
-        error: 'Sign In or Sign up to be able to toogle playing Cards'
+        error: 'List of Playing Cards'
     }
     componentWillMount() {
-        let show = this.state.cards.filter(card => card.deck_title === this.state.selected)
+   
+        let dselected = this.state.selected === 'House-Party' ? 1 : 2;
+        let show = this.state.cards.filter(card => card.deck_id  === dselected)
+   
         show = show.sort((a,b) => {
             return (a.card_id - b.card_id || a.deck_id - b.deck_id)
         })
@@ -41,10 +44,12 @@ export default class CardList extends Component {
                 <section 
                     key={card.card_id}
                     id={card.card_id}
-                    onClick={(cardKey)=> this.handleClick(cardKey)}
-                    className={`ListCardContainer column 
-                    ${card.active? 'cardGreen': 'cardRed'}`} 
+                  
+                    className={`ListCardContainer column  cardGreen
+                    `} 
                 >
+                      {/* onClick={(cardKey)=> this.handleClick(cardKey)}
+                    ${card.active? 'cardGreen': 'cardRed'} */}
                     <h2 id={card.card_id} >{card.card_title}</h2>
                     <p id={card.card_id} className="card-id">{card.card_desc}</p>
                 </section>)

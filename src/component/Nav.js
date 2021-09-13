@@ -31,7 +31,7 @@ export default class home extends Component {
             <nav className='navBarContainer'>
                 <ul className='navBar'>
                     <li><Link to='/'>Home</Link></li>
-                    {this.context.loggedIn ? this.renderLoggedOut() :  this.renderLoggedIn()}
+                    {/* {this.context.loggedIn ? this.renderLoggedOut() :  this.renderLoggedIn()} */}
                     <li><Link to='/CardList'>Cards</Link></li>
                 </ul>
             </nav> 

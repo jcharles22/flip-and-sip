@@ -8,12 +8,12 @@
     border-radius: 25px;
     background-color: rgb(217, 223, 210)
 }
-.ListCardContainer:active{
+/* .ListCardContainer:active{
     transform: translateY(4px);
 }
 .ListCardContainer:hover{
     cursor: pointer;
-}
+} */
 h5{
     font-size: 30px;
     font-weight: 400;
@@ -69,10 +69,10 @@ h5{
     border: 8px solid green;
     background-color: rgba(87, 255, 87, 0.397);
 }
-.cardGreen:hover {
+/* .cardGreen:hover {
     border: 8px solid rgb(245, 71, 71);
     background-color: rgba(199, 72, 72, 0.397);
-}
+} */
 
 .cardRed {
     border: 8px solid red;

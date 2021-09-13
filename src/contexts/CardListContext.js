@@ -41,7 +41,7 @@ export class CardListProvider extends Component {
     };
     
     setCards = () => {
-        fetch(`${config.API_ENDPOINT}/card`, {
+        fetch(`https://us-central1-flip-n-sip.cloudfunctions.net/api/card`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -56,7 +56,7 @@ export class CardListProvider extends Component {
     }
 
     setDeck = () => {
-        fetch(`${config.API_ENDPOINT}/deck/`)
+        fetch(`https://us-central1-flip-n-sip.cloudfunctions.net/api/deck`)
         .then(response => response.json())
         .then(response => this.setState({
             decks: response
@@ -103,7 +103,7 @@ export class CardListProvider extends Component {
                 userName: name 
             })
             this.setCards()
-        }
+        } 
 
     }
     handleLogout=()=> {
@@ -149,7 +149,7 @@ export class CardListProvider extends Component {
         
         playingCards = playingCards.filter(card => card.active)
         playingCards.map((card, index)=> {
-            return (playingCards[index].card_desc=card.card_desc.replace('random player', ''+ this.randomPlayer() +'' ))
+            return (playingCards[index].card_desc=card.card_desc.replace('Random Player', ''+ this.randomPlayer() +'' ))
         })
         playingCards = this.shuffleCards(playingCards) 
         this.setState({
@@ -165,7 +165,7 @@ export class CardListProvider extends Component {
     }
     updateCardInDatabase(cardId, deckId){
         let updatedCard = this.state.cards.filter(obj => {
-        return (obj.card_id === cardId && obj.deck_id === deckId)
+        return (parseInt(obj.card_id) === cardId && parseInt(obj.deck_id) === deckId)
         })
         let { card_id, deck_id} = updatedCard[0]
         let active = !updatedCard[0].active
@@ -217,7 +217,9 @@ export class CardListProvider extends Component {
     handleDeckSelected=(deckId) => {
         let deck = parseInt(deckId.target.id)
         let playingCards = this.state.cards
-        playingCards = playingCards.filter(card => card.deck_id === deck)
+   
+        playingCards = playingCards.filter(card => parseInt(card.deck_id) === deck)
+ 
         this.setState({
             playingCards
         })
